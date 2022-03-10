@@ -1,0 +1,32 @@
+void bubble_sort(int arr[], int sz)   //参数接收数组元素个数
+{
+  int i = 0;
+ for(i=0; i<sz-1; i++)               //确定趟数
+   {
+        int flag = 1 ;                //假设已经有序
+        int j = 0;
+        for(j=0; j<sz-i-1; j++)
+       {
+            if(arr[j] > arr[j+1])    //交换元素
+           {
+                flag = 0;
+                int tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tmp;
+           }
+       }
+     if(flag==1)
+           break;                    //如果flag还是等于1，说明已经排好序，跳出循环
+   }
+
+}
+int main()
+{
+    int arr[] = {3,1,7,5,8,9,0,2,4,6};
+    int sz = sizeof(arr)/sizeof(arr[0]);
+    bubble_sort(arr, sz);
+    for(i=0; i<sz; i++)
+   {
+        printf("%d ", arr[i]);
+   }
+    return 0;
