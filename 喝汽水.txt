@@ -1,0 +1,20 @@
+int drink_bottle(int money)
+{
+	int total = money;
+	int empty = money;
+	while (empty > 1)
+	{
+		total += empty / 2;
+		empty = empty % 2 + empty / 2;
+	}
+	return total;
+	
+}
+
+int main()
+{
+	int money;
+	scanf("%d", &money);
+	int ret = drink_bottle(money);
+	printf("%d", ret);
+}
