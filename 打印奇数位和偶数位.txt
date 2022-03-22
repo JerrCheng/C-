@@ -9,10 +9,14 @@ int main()
 	{
 		printf("%d", (m >> i) & i);
 	}
+    	printf("\n");
+
 	//打印偶数位
 	for (i = 31; i >= 0; i -= 2)
 	{
 		printf("%d", (m >> i) & i);
 	}
+    	printf("\n");
+
 	return 0;
 }
