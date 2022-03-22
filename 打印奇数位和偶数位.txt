@@ -1,0 +1,18 @@
+//打印二进制序列奇数位和偶数位
+int main()
+{
+	int m = 0;
+	scanf("%d", &m);
+	int i = 0;
+	//打印奇数位
+	for (i = 30; i >= 0; i -= 2)
+	{
+		printf("%d", (m >> i) & i);
+	}
+	//打印偶数位
+	for (i = 31; i >= 0; i -= 2)
+	{
+		printf("%d", (m >> i) & i);
+	}
+	return 0;
+}
