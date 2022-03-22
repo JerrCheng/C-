@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+	int m = 0;
+	int n = 0;
+	scanf("%d %d", &m, &n);
+	int i = 0;
+	int dif = 0;
+	int tmp = m ^ n;
+	while (tmp)
+	{
+		tmp = tmp & (tmp - 1);
+		dif++;
+	}
+	printf("%d\n", dif);
+	return 0;
+}
