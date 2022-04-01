@@ -23,3 +23,37 @@
     }
     return 0;
 }
+
+
+
+//函数形式
+#include<stdio.h>
+#include<math.h>
+
+
+int LilyNumber(int k)
+{
+    int sum = 0;
+    int tem = 0;
+    int tmp = 10;
+    while (tmp != 100000)
+    {
+        tem = (k / tmp) * (k % tmp);
+        sum += tem;
+        tmp *= 10;
+    }
+    if (sum == k)
+        return k;
+    else
+        return 0;
+}
+int main()
+{
+    int i = 0;
+        for(i = 10000; i < 99999; i++)
+        {
+            if (LilyNumber(i))
+                printf("%d ", i);
+        }
+    return 0;
+}
