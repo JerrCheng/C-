@@ -1,0 +1,45 @@
+判断一个字符串是否为另外一个字符串旋转之后的字符串。
+例如：给定s1 =AABCD和s2 = BCDAA，返回1
+
+给定s1=abcd和s2=ACBD，返回0.
+
+#include <stdio.h>
+#include <assert.h>
+#include <string.h>
+
+
+int is_left_move(char* str1, char* str2)
+{
+	assert(str1 && str2);
+
+	int len1 = strlen(str1);
+	int len2 = strlen(str2);
+	if (len1 != len2)
+		return 0;
+
+	//1. 在str2的后边追加一个str2
+	strncat(str2, str2, strlen(str2));
+	//2. 判断str1是不是追加后的子串
+	char* ret = strstr(str2, str1);
+	if (ret == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+int main()
+{
+	char arr1[20] = "abcdef";
+	char arr2[20] = "eqabcd";
+
+	int ret = is_left_move(arr2, arr1);
+	if (ret == 1)
+		printf("yes\n");
+	else
+		printf("no\n");
+
+	return 0;
+}
