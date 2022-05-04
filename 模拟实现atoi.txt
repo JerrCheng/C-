@@ -1,0 +1,87 @@
+atoi是将字符串转换成整型数据，如“1234”变成1234
+//空指针
+//空字符串
+//非数字字符
+//前面有空白字符
+//前面有+-
+//溢出
+
+#include <assert.h>
+#include <ctype.h>
+#include<stdio.h>
+#include<limits.h>
+enum Status
+{
+	VALID,
+	INVALID
+}status = INVALID;//非法
+
+int my_atoi(const char* str)
+{
+	int flag = 1;
+	//空指针
+	assert(str);
+
+	//字符串为空
+	if (*str == '\0')
+	{
+		return 0;
+	}
+	//空白字符
+	while(isspace(*str))
+	{ 
+		str++;
+	}
+	//正负号
+	if (*str == '+')
+	{
+		flag = 1;
+		str++;
+	}
+	else if (*str == '-')
+	{
+		flag = -1;
+		str++;
+	}
+
+	long long n = 0;
+	while (*str != '\0')
+	{
+		if (isdigit(*str))
+		{
+			n = n * 10 + flag * (*str - '0');
+			if (n < INT_MIN)
+			{
+				n = INT_MIN;
+				break;
+			}
+			else
+			{
+				n = INT_MAX;
+				break;
+			}
+		}
+		else
+		{
+			break;
+		}
+		str++;
+	}
+	if (*str == '\0')
+	{
+		status = VALID;
+	}
+
+	return (int)n;
+}
+
+int main()
+{
+	char arr[100] = "1111";
+	int ret = my_atoi(arr);
+	if(status == VALID)
+		printf("正常转化：%d\n", ret);
+	else
+		printf("非法转化：%d\n", ret);
+	return 0;
+}
