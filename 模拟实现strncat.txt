@@ -1,0 +1,26 @@
+#include<stdio.h>
+char* my_strncat(char* dst, char* src, size_t n)
+{
+	char* tmp = dst;
+	while (*dst)
+	{
+		dst++;
+	}
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		dst[i] = src[i];
+	}
+	dst[i] = '\0';
+	return tmp;
+}
+
+
+int main()
+{
+	char arr1[100] = "abcdefxxxxxxxxxxxxx";
+	char arr2[20] = "dgb";
+	int n = 3;
+	printf("%s\n", my_strncat(arr1,arr2,n));
+	return 0;
+ }
