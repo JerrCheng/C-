@@ -1,0 +1,16 @@
+int FirstNotRepeatingChar(char* str ) {
+    char table[1000] = {0};
+    int len = strlen(str);
+    for(int i=0;i<len;i++)
+    {
+        if(table[str[i]]<256)
+            table[str[i]]+=1;
+    }
+    
+    for(int j = 0;j<len;j++)
+    {
+        if(table[str[j]] == 1)
+            return j;
+    }
+    return -1;
+}
