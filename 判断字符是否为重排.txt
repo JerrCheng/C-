@@ -1,0 +1,24 @@
+bool CheckPermutation(char* s1, char* s2){
+    int table1[256] = {0}, table2[256] = {0};
+    int len1 = strlen(s1);
+    int len2 = strlen(s2);
+     if (len1 != len2) //先比长度
+            return false;
+
+     while(*s1 != '\0' && *s2 != '\0')
+      {
+          table1[(*s1)] += 1;
+          table2[(*s2)] += 1;
+          *s1++;
+          *s2++;
+
+      }
+
+      for(int i = 0; i<256;i++)
+      {
+          if(table1[i] != table2[i])
+           return false;
+      }
+
+            return true;
+}
