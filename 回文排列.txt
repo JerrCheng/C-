@@ -1,0 +1,16 @@
+bool canPermutePalindrome(char* s){
+int table[256] = {0};
+for (char *p = s; *p != '\0'; p++) {
+table[*p] += 1;//以字符ascii值为下标对字符出现次数进行统计
+}
+ int count = 0;
+for (int i = 0; i < 256; i++)
+ {
+if (table[i] % 2 == 1) count++; //出现奇数次的字符如果超过1个就表示肯定不是回文串
+if (count > 1)
+ {
+     return false;
+}
+} 
+     return true;
+}
