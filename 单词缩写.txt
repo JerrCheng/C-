@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+   int n;
+    while(scanf("%d",&n) != EOF)
+    {
+         char arr[101] ;
+         scanf("%s",arr);
+          int len = strlen(arr);
+       if(len < 10)
+       {
+            printf("%s\n",arr);
+           continue;
+       }
+        
+            printf("%c%d%c\n",arr[0],len-2,arr[len-1]);
+        
+    }
+    return 0;
+    
+ 
+}
