@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+    int n;
+    int count = 0;
+    while(scanf("%d",&n) != EOF)
+    {
+       for(int i=7;i<=n;i++)
+       {
+           if(i%7 == 0)
+           {
+               count++;
+               continue;
+           }
+           
+           int num = i;
+           while(num)
+           {
+               if(num % 10 == 7)
+               {
+                   count++;
+                   break;
+               }
+                 num /= 10;
+           }
+       }
+        printf("%d",count);
+    }
+    return 0;
+}
