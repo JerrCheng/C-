@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+
+int main(){
+    char s[1001] = {0};
+    gets(s);
+    int len = strlen(s);
+    int size_a = 0, size_null = 0, size_num = 0, size_it = 0;
+    for(int i = 0; i < len; i++){
+        if((s[i]>='a'&&s[i]<='z') || (s[i]>='A'&&s[i]<='Z')){
+            size_a++;
+        }
+        else if(s[i]>='0'&&s[i]<='9') size_num++;
+        else if(s[i]==' ') size_null++;
+        else size_it++;
+    }
+    printf("%d\n%d\n%d\n%d\n",size_a,size_null,size_num,size_it);
+    return 0;
+}
